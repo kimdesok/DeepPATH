@@ -349,4 +349,60 @@ ls -tr $OUTPUT_DIR/test_*/out2_roc_data_AvPb_c10*  | sed -e 's/k\/out2_roc_data_
 
 A similar code can be used for the test check by modifying the corresponding options and inputs.
 
+-----
+gdc-client usage
 
+PS C:\Users\DKim\GDC> ./gdc-client download -m 'my.txt'
+usage: gdc-client.exe download [-h] [--debug] [--log-file LOG_FILE]
+                               [--color_off] [-t TOKEN_FILE] [-d DIR]
+                               [-s server] [--no-segment-md5sums]
+                               [--no-file-md5sum] [-n N_PROCESSES]
+                               [--http-chunk-size HTTP_CHUNK_SIZE]
+                               [--save-interval SAVE_INTERVAL] [-k]
+                               [--no-related-files] [--no-annotations]
+                               [--no-auto-retry] [--retry-amount RETRY_AMOUNT]
+                               [--wait-time WAIT_TIME] [--latest]
+                               [--config FILE] [-m MANIFEST]
+                               [file_id [file_id ...]]
+
+positional arguments:
+  file_id               The GDC UUID of the file(s) to download
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --debug               Enable debug logging. If a failure occurs, the program
+                        will stop.
+  --log-file LOG_FILE   Save logs to file. Amount logged affected by --debug
+  --color_off           Disable colored output
+  -t TOKEN_FILE, --token-file TOKEN_FILE
+                        GDC API auth token file
+  -d DIR, --dir DIR     Directory to download files to. Defaults to current
+                        directory
+  -s server, --server server
+                        The TCP server address server[:port]
+  --no-segment-md5sums  Do not calculate inbound segment md5sums and/or do not
+                        verify md5sums on restart
+  --no-file-md5sum      Do not verify file md5sum after download
+  -n N_PROCESSES, --n-processes N_PROCESSES
+                        Number of client connections.
+  --http-chunk-size HTTP_CHUNK_SIZE, -c HTTP_CHUNK_SIZE
+                        Size in bytes of standard HTTP block size.
+  --save-interval SAVE_INTERVAL
+                        The number of chunks after which to flush state file.
+                        A lower save interval will result in more frequent
+                        printout but lower performance.
+  -k, --no-verify       Perform insecure SSL connection and transfer
+  --no-related-files    Do not download related files.
+  --no-annotations      Do not download annotations.
+  --no-auto-retry       Ask before retrying to download a file
+  --retry-amount RETRY_AMOUNT
+                        Number of times to retry a download
+  --wait-time WAIT_TIME
+                        Amount of seconds to wait before retrying
+  --latest              Download latest version of a file if it exists
+  --config FILE         Path to INI-type config file
+  -m MANIFEST, --manifest MANIFEST
+                        GDC download manifest file
+
+gdc-client error: argument -m/--manifest: can't open 'my.txt': [Errno 2] No such file or directory: 'my.txt'
+PS C:\Users\DKim\GDC>
