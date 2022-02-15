@@ -8,6 +8,10 @@
 ![image](https://user-images.githubusercontent.com/64822593/154029950-8e379ddb-0b8c-47f6-b37f-876c40b0ff31.png)
 
 
+## References
+>* An annotation-free whole-slide training approach to pathological classification of lung cancer types using deep learning (https://www.nature.com/articles/s41467-021-21467-y)
+
+
 ------------------------------------------
 The original Readme by Dr. Coudray
 
