@@ -1,4 +1,4 @@
-## A proposal to build a pipeline for classifying lunc cancer images and finding gene mutation from cancer tissue images
+## A proposal to build a pipeline for classifying lung cancer images and finding gene mutation from cancer tissue images
 
 1) Lung cancer images and clinical data will be downloaded from TCGA cancer database.
 2) ResNet-50 model will be investigated to classify cancer vs. normal images.
