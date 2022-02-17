@@ -10,8 +10,8 @@
 <br>
 <br>
 
-
-![image](https://user-images.githubusercontent.com/64822593/154432720-cf2d8ee6-1f3d-48e1-9aa6-f28276412910.png)
+## A proposal to provide a commercial SaaS on the cloud focusing on data QC and MLOps
+![image](https://user-images.githubusercontent.com/64822593/154438780-fd4e78ad-c6f7-483b-8884-8c171758825e.png)
 <br><center>Workflow schema of remote review by a digital pathology system</center>
 
 
