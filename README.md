@@ -6,11 +6,11 @@
 4) Each model will be also tested if it can detect the presence of a gene mutation in each patient sample.
 
 ![image](https://user-images.githubusercontent.com/64822593/154029950-8e379ddb-0b8c-47f6-b37f-876c40b0ff31.png)
-Pipeline schema for dataset preparation and DL model training
+<br><center>Pipeline schema for dataset preparation and DL model training
 
 
 ![image](https://user-images.githubusercontent.com/64822593/154432720-cf2d8ee6-1f3d-48e1-9aa6-f28276412910.png)
-Workflow schema of remote review by a digital pathology system
+<br><center>Workflow schema of remote review by a digital pathology system
 
 
 
