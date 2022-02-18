@@ -16,7 +16,7 @@
 2) The slide preparation lab prepares the slides and scan them to generate WSI images.
 3) The proposed service accesses the WSI images and performs a data QC.
 >* QC on the scanned images
->* QC on the model
+>* QC on the clinical data
 4) The proposed service performs a DL based diagnostic analysis whose summary shall be uploaded onto the cloud.
 > * MLOps on datasets
 > * MLOps on model performance
