@@ -14,14 +14,15 @@
 
 1) The surgery/oncology lab sends the patient specimens for a slide preparation lab.
 2) The slide preparation lab prepares the slides and scan them to generate WSI images.
-3) The proposed service access the WSI images and perform a data QC and DL based diagnostic analysis whose summary gets available on the cloud.
-4) The pathologist accesses the service and sign off the findings.
-5) The surgery/oncology lab accesses the service to get the report.
-![image](https://user-images.githubusercontent.com/64822593/154438780-fd4e78ad-c6f7-483b-8884-8c171758825e.png)
-<br><center>Workflow schema of remote review by a digital pathology system</center>
-
-
-
+3) The proposed service accesses the WSI images and performs a data QC.
+>* QC on the scanned images
+>* QC on the model
+4) The proposed service performs a DL based diagnostic analysis whose summary shall be uploaded onto the cloud.
+> * MLOps on datasets
+> * MLOps on model performance
+> * MLOps on model upgrade
+5) The pathologist accesses the service and sign off the findings.
+6) The surgery/oncology lab accesses the service to get the report.
 
 ## References
 >* An annotation-free whole-slide training approach to pathological classification of lung cancer types using deep learning (https://www.nature.com/articles/s41467-021-21467-y)
