@@ -10,6 +10,15 @@
 <br>
 <br>
 
+## A propsal to utilize an entity-graph representation of the entire WSI to increase the tissue image analysis based gene mutation detection
+
+1) The spatial relationship between intra and intercell types can be important to classify the tumor with gene mutations but it is lost in the patch based image analysis.
+2) A graph representation of tumor or normal cells may be included in the training.
+3) A graph representation of tumor and normal cells may be included in the training.
+4) A hierarchical graph representation of cells and tissue (glands or stromal layers) may be included in the training.
+
+![image](https://user-images.githubusercontent.com/64822593/155290161-1e464b34-5396-4032-afb6-c785e02278ba.png)
+
 ## A proposal to provide a commercial SaaS on the cloud focusing on data QC and MLOps
 
 1) The surgery/oncology lab sends the patient specimens for a slide preparation lab.
@@ -27,6 +36,7 @@
 ## References
 >* An annotation-free whole-slide training approach to pathological classification of lung cancer types using deep learning (https://www.nature.com/articles/s41467-021-21467-y)
 >* Validation of a digital pathology system including remote review during the COVID-19 pandemic (https://www.nature.com/articles/s41379-020-0601-5.pdf)
+>* Hierarchical Graph Representations in Digital Pathology (https://arxiv.org/pdf/2102.11057.pdf)
 
 
 ------------------------------------------
