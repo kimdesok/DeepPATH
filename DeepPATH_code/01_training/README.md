@@ -1,7 +1,11 @@
 The Inception network re-trained from scratch following the protocol and code in 
-https://github.com/tensorflow/models/tree/master/research/inception. 
+https://github.com/tensorflow/models/tree/archive/research/inception
 The notes below are coming from that github page.
+It is recomended to refer this page for more recent guideline:
+https://github.com/tensorflow/models/tree/master/research/slim
 
+Note: At the moment, InceptionV3 is provided by TF2.7 or higher. 
+All you have to do is to retrain the Inception model with your own data, i.e., transfer learning.
 
 # Re-training from scratch:
 
