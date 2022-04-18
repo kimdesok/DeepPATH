@@ -18,11 +18,12 @@ Tile the images using the magnification (20x) and tile size of interest (512x512
 ```shell
 python 00_preprocessing/0b_tileLoop_deepzoom4.py  -s 512 -e 0 -j 32 -B 50 -M 20 -o 512px_Tiled "downloaded_data/*/*svs"  
 ```
-It takes about 10sec to generaste 10k tiles when using 30 CPUs.
+It takes about 10sec to generate 10k tiles when using 30 CPUs.
 
 ## 2.2 - Pre-processing - sorting
 
-* Sort the dataset into a test, train and validation cohort for a 3-way classifier (LUAD/LUSC/Normal). You need to create a new directory and run this job from that directory
+* Sort the dataset into a test, train and validation cohort for a three-way classifier (LUAD/LUSC/Normal). 
+* You need to create a new directory and run this job from that directory.
 
 ```shell
 mkdir r1_sorted_3Cla
@@ -95,7 +96,9 @@ bazel-bin/inception/imagenet_train --num_gpus=4 --batch_size=400 --train_dir='r1
 
 ## 2.4 - Validation and test 
 
-* As the first checkpoint appear, you can start running the validation set on it. Create a "labelref_r1.txt" text file with the list of possible classes (see attached example). To run it in on loop on all existing checkpoints, the following code can be adapted:
+* As the first checkpoint appears, you can start running the validation set on it. 
+* Create a "labelref_r1.txt" text file with the list of possible classes (see attached example). 
+* To run it in on loop on all existing checkpoints, the following code can be adapted:
 
 
 ```shell
