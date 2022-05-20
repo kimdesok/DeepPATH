@@ -2,8 +2,8 @@
 ### To build a pipeline for classifying lung cancer images and finding gene mutation from cancer tissue images
 
 1) Lung cancer images and corresponding clinical data will be downloaded from TCGA cancer database.
-2) ResNet-50 model will be investigated to classify cancer vs. normal images.
-3) VGG-19 model will be also investigated in addition and compared its performance with the ResNet-50 model.
+2) A few deep learning models such as Inception V3, Xception and ResNet 50 will be investigated to classify cancer vs. normal images.
+3) Their performance will be compared.
 4) Each model will be also tested if it can detect the presence of a gene mutation in each patient sample.
 
 ![image](https://user-images.githubusercontent.com/64822593/154029950-8e379ddb-0b8c-47f6-b37f-876c40b0ff31.png)
