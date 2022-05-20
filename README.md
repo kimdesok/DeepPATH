@@ -1,4 +1,5 @@
-## A proposal to build a pipeline for classifying lung cancer images and finding gene mutation from cancer tissue images
+## Aim 1.
+### To build a pipeline for classifying lung cancer images and finding gene mutation from cancer tissue images
 
 1) Lung cancer images and corresponding clinical data will be downloaded from TCGA cancer database.
 2) ResNet-50 model will be investigated to classify cancer vs. normal images.
@@ -10,7 +11,8 @@
 <br>
 <br>
 
-## A propsal to utilize an entity-graph representation of the entire WSI to increase the tissue image analysis based gene mutation detection
+## Aim 2.
+### To utilize an entity-graph representation of the entire WSI to increase the tissue image analysis based gene mutation detection
 
 1) The spatial relationship between intra and intercell types can be important to classify the tumor with gene mutations but it is lost in the patch based image analysis.
 2) A graph representation of tumor or normal cells may be included in the training.
@@ -19,7 +21,8 @@
 
 ![image](https://user-images.githubusercontent.com/64822593/155290161-1e464b34-5396-4032-afb6-c785e02278ba.png)
 
-## A proposal to provide a commercial SaaS on the cloud focusing on data QC and MLOps
+## Aim 3.
+### To provide a commercial SaaS on the cloud focusing on data QC and MLOps
 
 1) The surgery/oncology lab sends the patient specimens for a slide preparation lab.
 2) The slide preparation lab prepares the slides and scan them to generate WSI images.
@@ -40,7 +43,7 @@
 
 
 ------------------------------------------
-## Dr. Coudray's DeepPATH framework
+## Summary of Dr. Coudray's DeepPATH framework
 
 The DeepPATH framework gathers the codes that have been used to study the use of a deep learning architecture (inception v3 from Google) to classify Lung cancer images.
 
