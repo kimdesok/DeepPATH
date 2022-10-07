@@ -1,32 +1,25 @@
-## Aim 1.
-### To build a pipeline for classifying lung cancer images and finding gene mutation from cancer tissue images
+## Aim 1. To build a pipeline for classifying lung cancer image patches
 
 1) Lung cancer images and corresponding clinical data will be downloaded from TCGA cancer database.
-2) A few deep learning models such as Inception V3, Xception and ResNet 50 will be investigated to classify cancer vs. normal images.
+2) A few deep learning models such as Inception V3, Xception and ResNet 50 will be investigated to classify cancer vs. normal patches.
 3) Their performance will be compared.
-4) Each model will be also tested if it can detect the presence of a gene mutation in each patient sample.
 
 ![image](https://user-images.githubusercontent.com/64822593/154029950-8e379ddb-0b8c-47f6-b37f-876c40b0ff31.png)
 <br><center>Pipeline schema for dataset preparation and DL model training</center><br><br>
-###Methods:
+### Methods:
 1) Out of several DL models, Xception was selected first. The transfer learning routine was applied to the pretrained model trained with the imagenet.
 2) Upon adjusting hyperparamers for the best validation accuracy, the model was finetuned by basically letting all layers to be retrained.
-###Results:
+### Results:
 The accuracy of the finely tuned Xception model reached up to AUC 0.9862.
 ![image](https://github.com/kimdesok/DeepPATH/blob/master/fine_tune_plot.png)
 
-## Aim 2 - will be scraped due to its reported accuracy is not encouraging which is around 70%.
-### To utilize an entity-graph representation of the entire WSI to increase the tissue image analysis based gene mutation detection
-
-1) The spatial relationship between intra and intercell types can be important to classify the tumor with gene mutations but it is lost in the patch based image analysis.
-2) A graph representation of tumor or normal cells may be included in the training.
-3) A graph representation of tumor and normal cells may be included in the training.
-4) A hierarchical graph representation of cells and tissue (glands or stromal layers) may be included in the training.
-
-![image](https://user-images.githubusercontent.com/64822593/155290161-1e464b34-5396-4032-afb6-c785e02278ba.png)
-
-## Aim 3.
-### To provide a commercial SaaS on the cloud focusing on data QC and MLOps
+## Aim 2. To explore annotation free classification schemes based on a whole slide training method
+1) The whole slide images were used to train standard CNNs by using the unified memory (UM) mechanism and several GPU memory optimization techniques without modification in either training pipelines or model architectures. 
+2) To compare some previous label free trainings such as MIL, the performance of the whole slide training was superior (AUC: 0.9594 vs. 0.9310 for MIL-RNN).
+ 
+![image](https://user-images.githubusercontent.com/64822593/194527469-1b186d2e-672b-46e8-9ad4-9ab13685ab42.png)
+From [1].  This figure illustrates nicely for three representative approaches for WSI classification schemes.  The aim 1 was accomplished following the scheme (a).  In aim 2, the scheme (c) will be explored.
+## Aim 3. To provide a commercial SaaS on the cloud focusing on data QC and MLOps
 
 1) The surgery/oncology lab sends the patient specimens for a slide preparation lab.
 2) The slide preparation lab prepares the slides and scan them to generate WSI images.
@@ -41,9 +34,9 @@ The accuracy of the finely tuned Xception model reached up to AUC 0.9862.
 6) The surgery/oncology lab accesses the service to get the report.
 
 ## References
->* An annotation-free whole-slide training approach to pathological classification of lung cancer types using deep learning (https://www.nature.com/articles/s41467-021-21467-y)
->* Validation of a digital pathology system including remote review during the COVID-19 pandemic (https://www.nature.com/articles/s41379-020-0601-5.pdf)
->* Hierarchical Graph Representations in Digital Pathology (https://arxiv.org/pdf/2102.11057.pdf)
+>[1] An annotation-free whole-slide training approach to pathological classification of lung cancer types using deep learning (https://www.nature.com/articles/s41467-021-21467-y)
+>[2] Validation of a digital pathology system including remote review during the COVID-19 pandemic (https://www.nature.com/articles/s41379-020-0601-5.pdf)
+>[3] Hierarchical Graph Representations in Digital Pathology (https://arxiv.org/pdf/2102.11057.pdf)
 
 
 ------------------------------------------
