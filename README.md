@@ -8,8 +8,11 @@
 
 ![image](https://user-images.githubusercontent.com/64822593/154029950-8e379ddb-0b8c-47f6-b37f-876c40b0ff31.png)
 <br><center>Pipeline schema for dataset preparation and DL model training</center>
-<br>
-<br>
+<br>Methods:
+<br>Results:
+The accuracy of the finely tuned Xception model reached up to AUC 0.9862.
+![image](
+
 
 ## Aim 2.
 ### To utilize an entity-graph representation of the entire WSI to increase the tissue image analysis based gene mutation detection
