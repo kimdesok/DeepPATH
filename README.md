@@ -11,7 +11,7 @@
 <br>Methods:
 <br>Results:
 The accuracy of the finely tuned Xception model reached up to AUC 0.9862.
-![image](
+![image](https://github.com/kimdesok/DeepPATH/blob/master/fine_tune_plot.png)
 
 
 ## Aim 2.
