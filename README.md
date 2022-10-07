@@ -9,12 +9,13 @@
 ![image](https://user-images.githubusercontent.com/64822593/154029950-8e379ddb-0b8c-47f6-b37f-876c40b0ff31.png)
 <br><center>Pipeline schema for dataset preparation and DL model training</center>
 <br>Methods:
+1) Out of several DL models, Xception was selected first. The transfer learning routine was applied to the pretrained model trained with the imagenet.
+2) Upon adjusting hyperparamers for the best validation accuracy, the model was finetuned by basically letting all layers to be retrained.
 <br>Results:
 The accuracy of the finely tuned Xception model reached up to AUC 0.9862.
 ![image](https://github.com/kimdesok/DeepPATH/blob/master/fine_tune_plot.png)
 
-
-## Aim 2.
+## Aim 2 - will be scraped due to its reported accuracy is not encouraging which is around 70%.
 ### To utilize an entity-graph representation of the entire WSI to increase the tissue image analysis based gene mutation detection
 
 1) The spatial relationship between intra and intercell types can be important to classify the tumor with gene mutations but it is lost in the patch based image analysis.
