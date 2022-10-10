@@ -10,7 +10,7 @@
 1) Out of several DL models, Xception was selected first. The transfer learning routine was applied to the pretrained model trained with the imagenet.
 2) Upon adjusting hyperparamers for the best validation accuracy, the model was finetuned by basically letting all layers to be retrained.
 ### Results:
-The accuracy of the finely tuned Xception model reached up to AUC 0.9862.
+The accuracy of the finely tuned Xception, Inception V3, or Resnet50 models reached up to AUC 0.93 or higher.
 ![image](https://github.com/kimdesok/DeepPATH/blob/master/fine_tune_plot.png)
 
 ## Aim 2. To explore annotation free classification schemes based on a whole slide training method
@@ -37,7 +37,6 @@ From [1].  This figure illustrates nicely for three representative approaches fo
 >[1] An annotation-free whole-slide training approach to pathological classification of lung cancer types using deep learning (https://www.nature.com/articles/s41467-021-21467-y)
 >[2] Validation of a digital pathology system including remote review during the COVID-19 pandemic (https://www.nature.com/articles/s41379-020-0601-5.pdf)
 >[3] Hierarchical Graph Representations in Digital Pathology (https://arxiv.org/pdf/2102.11057.pdf)
-
 
 ------------------------------------------
 ## Summary of Dr. Coudray's DeepPATH framework
