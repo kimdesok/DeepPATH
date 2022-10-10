@@ -11,6 +11,8 @@
 2) Upon adjusting hyperparamers for the best validation accuracy, the model was finetuned by basically letting all layers to be retrained.
 ### Results:
 The accuracy of the finely tuned Xception, Inception V3, or Resnet50 models reached up to AUC 0.93 or higher.
+
+Below showing the loss and accuracy changes during the training of a fine tuned Xception model
 ![image](https://github.com/kimdesok/DeepPATH/blob/master/fine_tune_plot.png)
 
 ## Aim 2. To explore annotation free classification schemes based on a whole slide training method
