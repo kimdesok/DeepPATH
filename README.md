@@ -1,8 +1,9 @@
 ## Brief Summary (interim)
 Several pretrained deep learning(DL) models such as Inception v3, Xception and ResNet 50 were used to investigate the effectiveness of transfer learning and fine-tuning techniques. A dataset of whole slide images avaliable at the NCI's TCGA site was downloaded and preprocessed into small patches along with their labels.  Transfer learning and fine-tuning of the DL models were programmed within the framework of Tensorflow's Keras libraries. 
 
-In an experiment of using ResNet 50, transfer learning improved the AUC from 0.7533 to 0.7938 and fine tuning dramatically improved the AUC to 0.9547. 
-In another experiment of using Xception with a full dataset, transfer learning resulted in the AUC of 0.9236 that was further improved by the fine tuning upto 0.9881.
+The effectiveness of transfer learning was demonstrated by comparing the AUC values of the ResNet 50 trained without ('from scratch') and with the pretrained weights.  Its transfer learning with the small dataset improved the AUC from 0.7533 to 0.7938. Its fine tuning dramatically improved the AUC to 0.9547 (The results with the full dataset will be reported in addition). 
+
+Inception V3 resulted in the AUC of 0.9287 by its transfer learning with the full dataset that was further improved by its fine tuning upto 0.9885, while Xception resulted in the AUC of 0.9236 that was further improved upto 0.9862.
 
 (The full dataset consisted of a training set of 1024 WSIs, a validation set of 206 WSIs, and a test set of 207 WSIs.)
 
@@ -27,8 +28,8 @@ reference: https://keras.io/guides/transfer_learning/
 ### Results:
 The accuracy of the finely tuned Xception, Inception V3, or Resnet50 models reached up to AUC 0.93 or higher.
 
-Below showing the loss and accuracy changes during the training of a fine tuned Xception model
-![image](https://github.com/kimdesok/DeepPATH/blob/master/fine_tune_plot.png)
+Below showing the loss and accuracy changes during the training of a fine tuned ResNet50 model with the small dataset
+![image](https://github.com/kimdesok/DeepPATH/blob/master/Resnet50_small_fine_tuned_plot.png)
 
 ## Aim 2. To explore annotation free classification schemes based on a whole slide training method
 1) The whole slide images were used to train standard CNNs by using the unified memory (UM) mechanism and several GPU memory optimization techniques without modification in either training pipelines or model architectures. 
