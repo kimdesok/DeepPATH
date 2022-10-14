@@ -18,8 +18,8 @@ Inception V3 resulted in the AUC of 0.9287 by its transfer learning with the ful
 
 ### Materials and Methods:
 1) Among several deep learning(DL) models, Xception, Inception v3, and Resnet 50 were selected from Tensorflow Keras APIs.
-2) Whole slide images(WSI) of lung cancer specimens('LUAD' and 'Normal') were downloaded from the NCI's TCGA database.  Each WSI were divided into small patches (299 x 299) and transformed to the TFRecord format along with their labels.
-3) Transfer learning was applied to the pretrained model trained with the imagenet dataset.  The effectiveness of transfer learning was measured by comparing the AUC from the pretrained vs. 'from scratch' models.
+2) Whole slide images(WSI) of lung cancer specimens('LUAD' and 'Normal') were downloaded from the NCI's TCGA database.  Each WSI was divided into small patches (299 x 299) and transformed to the TFRecord format along with their labels for more efficient loading.
+3) Transfer learning was applied to each model pretrained with the imagenet dataset.  In addition, Resnet 50 was trained from random initial weights ('from scratch') to assess the value of the transfer learning.
 4) Upon adjusting hyperparameters for the best validation loss('val_loss'), the model was fine-tuned by basically setting all layers to be retrained. 
 reference: https://keras.io/guides/transfer_learning/
 
