@@ -1,11 +1,17 @@
 ## Brief Summary (interim)
-Several pretrained deep learning(DL) models such as Inception v3, Xception and ResNet 50 were used to investigate the effectiveness of transfer learning and fine-tuning techniques. A dataset of whole slide images avaliable at the NCI's TCGA site was downloaded and preprocessed into small patches along with their labels.  Transfer learning and fine-tuning of the DL models were programmed within the framework of Tensorflow's Keras libraries. 
+Several pretrained deep learning(DL) models such as Inception v3, Xception and ResNet 50 were used to investigate the effectiveness of transfer learning and fine-tuning techniques when applied to the histologic image classification. A dataset of whole slide images avaliable at the NCI's TCGA site was downloaded and preprocessed into small patches along with their labels.  Transfer learning and fine-tuning of the DL models were programmed within the framework of Tensorflow's Keras libraries. 
 
-The effectiveness of transfer learning was demonstrated by comparing the AUC values of the ResNet 50 trained without ('from scratch') and with the pretrained weights.  Its transfer learning with the small dataset improved the AUC from 0.7533 to 0.7938. Its fine tuning dramatically improved the AUC to 0.9547 (The results with the full dataset will be reported in addition). 
+When the training set is small, transfer learning seemed to result in the improved AUC values from ResNet 50 with the pretrained weights compared to the one without ('from scratch').  Its transfer learning increased the AUC values from 0.5234 to 0.7304. Its fine tuning dramatically improved the AUC to 0.9547.
+
+When the size of the dataset was increased by two folds, Resnet 50 trained from scratch reached the AUC of 0.9521 while the one with the pretrained weights did not change much, resulting in 0.7401.  Fine tuning further improved the AUC upto 0.9781 for the ResNet 50 trained from scratch and 0.9795 for the ResNet 50 trained with the pretrained weights.
+
+When the full dataset was used for Resnet 50 with the pretrained weights, the AUC increased from 0.7535 to 0.9819 after fine tuning.   
+
+This exercise showed a pretrained model could be ideal with a small dataset (only) if a fine tuning is applied to improve the performance further.  However, if the size of the dataset gets large enough, the 'from scratch' approach generates the result that could be good enough with (or without) the fine tuning.  
 
 Inception V3 resulted in the AUC of 0.9287 by its transfer learning with the full dataset that was further improved by its fine tuning upto 0.9885, while Xception resulted in the AUC of 0.9236 that was further improved upto 0.9862.
 
-(The full dataset consisted of a training set of 1024 WSIs, a validation set of 206 WSIs, and a test set of 207 WSIs.)
+(The full dataset had a training set of 1024 WSIs and a validation set of 206 WSIs while the small set had 100 WSIs and 50 WSIs, respectively.  Both sets had a test set of 207 WSIs.)
 
 ## Aim 1. To build a pipeline for classifying lung cancer image patches
 
@@ -23,10 +29,9 @@ Inception V3 resulted in the AUC of 0.9287 by its transfer learning with the ful
 4) Upon adjusting hyperparameters for the best validation loss('val_loss'), the model was fine-tuned by basically setting all layers to be retrained. 
 reference: https://keras.io/guides/transfer_learning/
 
-
 <br><br>
 ### Results:
-The accuracy of the finely tuned Xception, Inception V3, or Resnet50 models reached up to AUC 0.93 or higher.
+The accuracy of the finely tuned Xception, Inception V3, or Resnet50 models reached upto AUC 0.982 or higher.
 
 Below showing the loss and accuracy changes during the training of a fine tuned ResNet50 model with the small dataset
 ![image](https://github.com/kimdesok/DeepPATH/blob/master/Resnet50_small_fine_tuned_plot.png)
