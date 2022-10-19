@@ -36,16 +36,12 @@ Below showing the loss and accuracy changes during the training of a fine tuned 
 ### Summary:
 The accuracy of the finely tuned Xception, Inception V3, or Resnet50 models reached upto AUC 0.982 or higher.
 
-### References: 
-[1] DeepPATH repositoty at Dr. N. Coudray's Github https://github.com/ncoudray/DeepPATH.
-[2] Keras' developer guide https://keras.io/guides/transfer_learning/
-
 ## Aim 2. To explore annotation free classification schemes based on a whole slide training method
 1) The whole slide images were used to train standard CNNs by using the unified memory (UM) mechanism and several GPU memory optimization techniques without modification in either training pipelines or model architectures. 
 2) To compare some previous label free trainings such as MIL, the performance of the whole slide training was superior (AUC: 0.9594 vs. 0.9310 for MIL-RNN).
  
 ![image](https://user-images.githubusercontent.com/64822593/194527469-1b186d2e-672b-46e8-9ad4-9ab13685ab42.png)
-From [1].  This figure illustrates nicely for three representative approaches for WSI classification schemes.  The aim 1 was accomplished following the scheme (a).  In aim 2, the scheme (c) will be explored.
+From [3].  This figure illustrates nicely for three representative approaches for WSI classification schemes.  The aim 1 was accomplished following the scheme (a).  In aim 2, the scheme (c) will be explored.
 ## Aim 3. To provide a commercial SaaS on the cloud focusing on data QC and MLOps
 
 1) The surgery/oncology lab sends the patient specimens for a slide preparation lab.
@@ -60,10 +56,12 @@ From [1].  This figure illustrates nicely for three representative approaches fo
 5) The pathologist accesses the service and sign off the findings.
 6) The surgery/oncology lab accesses the service to get the report.
 
-## References
->[1] An annotation-free whole-slide training approach to pathological classification of lung cancer types using deep learning (https://www.nature.com/articles/s41467-021-21467-y)
->[2] Validation of a digital pathology system including remote review during the COVID-19 pandemic (https://www.nature.com/articles/s41379-020-0601-5.pdf)
->[3] Hierarchical Graph Representations in Digital Pathology (https://arxiv.org/pdf/2102.11057.pdf)
+### References: 
+>[1] DeepPATH repositoty at Dr. N. Coudray's Github https://github.com/ncoudray/DeepPATH. <br>
+>[2] Keras' developer guide https://keras.io/guides/transfer_learning/ <br>
+>[3] An annotation-free whole-slide training approach to pathological classification of lung cancer types using deep learning (https://www.nature.com/articles/s41467-021-21467-y) <br>
+>[4] Validation of a digital pathology system including remote review during the COVID-19 pandemic (https://www.nature.com/articles/s41379-020-0601-5.pdf) <br>
+>[5] Hierarchical Graph Representations in Digital Pathology (https://arxiv.org/pdf/2102.11057.pdf) <br>
 
 ------------------------------------------
 ##  Discussion on the DeepPATH framework
