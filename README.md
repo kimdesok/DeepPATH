@@ -9,10 +9,10 @@
 
 ### Materials and Methods:
 1) Among several deep learning(DL) models, Xception, Inception v3, and Resnet 50 were selected from Tensorflow Keras APIs.
-2) Whole slide images(WSI) of lung cancer specimens('LUAD' and 'Normal') were downloaded from the NCI's TCGA database.  Each WSI was divided into small patches and transformed to the TFRecord format along with their labels for more efficient loading.
-3) Transfer learning was applied to each model pretrained with the imagenet dataset.  In addition, Resnet 50 was trained from random initial weights ('from scratch') to assess the value of the transfer learning by comparison.
-4) Upon adjusting hyperparameters for the best validation loss('val_loss'), the model was fine-tuned by basically setting all layers to be retrained. 
-reference: https://keras.io/guides/transfer_learning/
+2) Whole slide images(WSI) of lung cancer specimens('LUAD' and 'Normal') were downloaded from the NCI's TCGA database.  
+3) Each WSI was divided into small patches and transformed to the TFRecord format along with their labels for more efficient loading by using the scripts available at [1] 
+4) Transfer learning was applied to each model pretrained with the imagenet dataset [2]  In addition, Resnet 50 was trained from random initial weights ('from scratch') to assess the value of the transfer learning by comparison.  
+5) Upon adjusting hyperparameters for the best validation loss('val_loss'), the model was fine-tuned by basically setting all layers to be retrained. 
 
 ## Results (provisional)
 Several pretrained deep learning(DL) models such as Inception v3, Xception and ResNet 50 were used to investigate the effectiveness of transfer learning and fine-tuning techniques when applied to the histologic image classification. A dataset of whole slide images avaliable at the NCI's TCGA site was downloaded and preprocessed into small patches along with their labels.  Transfer learning and fine-tuning of the DL models were programmed within the framework of Tensorflow's Keras libraries. 
@@ -35,6 +35,10 @@ Below showing the loss and accuracy changes during the training of a fine tuned 
 <br><br>
 ### Summary:
 The accuracy of the finely tuned Xception, Inception V3, or Resnet50 models reached upto AUC 0.982 or higher.
+
+### References: 
+[1] DeepPATH repositoty at Dr. N. Coudray's Github https://github.com/ncoudray/DeepPATH.
+[2] Keras' developer guide https://keras.io/guides/transfer_learning/
 
 ## Aim 2. To explore annotation free classification schemes based on a whole slide training method
 1) The whole slide images were used to train standard CNNs by using the unified memory (UM) mechanism and several GPU memory optimization techniques without modification in either training pipelines or model architectures. 
