@@ -56,7 +56,11 @@ The accuracy of the finely tuned Xception, Inception V3, or Resnet50 models reac
 From [3].  This figure illustrates nicely for three representative approaches for WSI classification schemes.  The aim 1 was accomplished following the scheme (a).  In aim 2, the scheme (c) will be explored.
 
 
-## Aim 3. To provide a commercial SaaS on the cloud focusing on data QC and MLOps
+## Aim 3. To utilize the previously obtained representation to detect gene mutation by the tissue image analysis
+1) To try the patch classification models.
+2) To try the WSI classification models.
+
+## Aim 4. To provide a commercial SaaS on the cloud focusing on data QC and MLOps
 
 1) The surgery/oncology lab sends the patient specimens for a slide preparation lab.
 2) The slide preparation lab prepares the slides and scan them to generate WSI images.
@@ -77,7 +81,7 @@ From [3].  This figure illustrates nicely for three representative approaches fo
 >[4] Validation of a digital pathology system including remote review during the COVID-19 pandemic (https://www.nature.com/articles/s41379-020-0601-5.pdf) <br>
 >[5] Hierarchical Graph Representations in Digital Pathology (https://arxiv.org/pdf/2102.11057.pdf) <br>
 
-------------------------------------------
+
 ##  Discussion on the DeepPATH framework
 
 The DeepPATH framework gathers the codes that have been used to study the use of a deep learning architecture (Inception v3 from Google) to classify Lung cancer images.
