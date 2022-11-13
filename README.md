@@ -36,11 +36,8 @@ Inception V3 resulted in the AUC of 0.9287 by its transfer learning with the ful
 
 Below showing the loss and accuracy changes during the training of a fine tuned ResNet50 model with the small dataset
 
-
 ![image](https://github.com/kimdesok/DeepPATH/blob/master/Resnet50_small_fine_tuned_plot.png)
 
-
-<br><br>
 ### Summary:
 
 This exercise showed a pretrained model with a small dataset required a fine tuning to improve the performance further.  
@@ -55,6 +52,7 @@ The accuracy of the finely tuned Xception, Inception V3, or Resnet50 models reac
 
 From [3].  This figure illustrates nicely for three representative approaches for WSI classification schemes.  The aim 1 was accomplished following the scheme (a).  In aim 2, the scheme (c) will be explored.
 
+Results in draft were presented available in a separate repository. https://github.com/kimdesok/whole-slide-cnn/blob/main/README.md
 
 ## Aim 3. To utilize the previously obtained representation to detect gene mutation by the tissue image analysis
 1) To try the patch classification models.
