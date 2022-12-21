@@ -1,22 +1,20 @@
+# Classification of lung cancer image patches and prediction of gene mutations using deep neural nets
+![image](https://user-images.githubusercontent.com/64822593/208830983-7c5d1077-7a3c-4618-85ff-ffc2ce92d5d8.png)
+
+<br>Pipeline schema for dataset preparation and DL model training related to Aim 1 and 2<br><br>
 ## Aim 1. To build a pipeline for classifying lung cancer image patches
 
-1) Lung cancer images and corresponding clinical data will be downloaded from TCGA cancer database.
-2) A few deep learning models such as Inception V3, Xception and ResNet 50 will be investigated to classify cancer vs. normal patches.
-3) Their performance will be compared.
-
-![image](https://user-images.githubusercontent.com/64822593/154029950-8e379ddb-0b8c-47f6-b37f-876c40b0ff31.png)
-<br>Pipeline schema for dataset preparation and DL model training<br><br>
-
-
-### Materials and Methods:
+### Materials and Methods
 1) Among several deep learning(DL) models, Xception, Inception v3, and Resnet 50 were selected from Tensorflow Keras APIs.
-2) Whole slide images(WSI) of lung cancer specimens('LUAD' and 'Normal') were downloaded from the NCI's TCGA database.  
+2) Whole slide images(WSI) of lung cancer specimens('LUAD' and 'Normal') were downloaded from TCGA project of the NCI's GDC data portal database.  
 3) Each WSI was divided into small patches and transformed to the TFRecord format along with their labels for more efficient loading by using the scripts available at [1] 
-4) Transfer learning was applied to each model pretrained with the imagenet dataset [2]  In addition, Resnet 50 was trained from random initial weights ('from scratch') to assess the value of the transfer learning by comparison.  
-5) Upon adjusting hyperparameters for the best validation loss('val_loss'), the model was fine-tuned by basically setting all layers to be retrained. 
+4) Transfer learning was applied to each model pretrained with the imagenet dataset [2]  In addition, each model was trained from random initial weights ('from scratch') to assess the value of the transfer learning by comparison.  
+5) Upon adjusting hyperparameters for the best validation loss('val_loss'), the model was fine-tuned by setting all layers to be retrained. 
 
 ## Results (provisional)
-Several pretrained deep learning(DL) models such as Inception v3, Xception and ResNet 50 were used to investigate the effectiveness of transfer learning and fine-tuning techniques when applied to the histologic image classification. A dataset of whole slide images avaliable at the NCI's TCGA site was downloaded and preprocessed into small patches along with their labels.  Transfer learning and fine-tuning of the DL models were programmed within the framework of Tensorflow's Keras libraries. 
+Several predefined deep learning(DL) models such as Inception v3, Xception and ResNet 50 were used to investigate the effectiveness of transfer learning and fine-tuning techniques when applied to the histologic image classification. A dataset of whole slide images avaliable at the NCI's TCGA site was downloaded and preprocessed into small patches along with their labels.  
+
+Transfer learning and fine-tuning of the DL models were programmed within the framework of Tensorflow's Keras libraries. 
 
 When the training set is small, transfer learning with the pretrained weights does not seem to improve AUC values for ResNet 50 compared to the one without ('None' for weights).  Its AUC values were about 0.74 whereas the AUC values from training without weights were about 0.95. The fine tuning dramatically improved the AUC to 0.95 for the one with the weights and slightly to 0.96 for the one without(See Table 1).
 
@@ -25,10 +23,9 @@ When the size of the dataset was increased by two folds, Resnet 50 trained from 
 When the full dataset was used for Resnet 50 with the pretrained weights, the AUC increased from 0.7535 to 0.9819 after fine tuning (See Table 1).   
 
 
-Table 1.  Performance data of ResNet 50 using three differently sized datasets, Inception V3 and Xception models trained by transfer learning and fine tuning  
+Table 1.  Performance data of ResNet 50 using three differently sized datasets, Inception V3 and Xception models trained by transfer learning and fine tuning
 
 ![image](https://user-images.githubusercontent.com/64822593/198612735-2343c733-0337-442d-887b-462330147d22.png)
-
 
 Inception V3 resulted in the AUC of 0.9287 by its transfer learning with the full dataset that was further improved by its fine tuning upto 0.9885, while Xception resulted in the AUC of 0.9236 that was further improved upto 0.9862(See Table 1).
 
@@ -38,39 +35,30 @@ Below showing the loss and accuracy changes during the training of a fine tuned 
 
 ![image](https://github.com/kimdesok/DeepPATH/blob/master/Resnet50_small_fine_tuned_plot.png)
 
-### Summary:
+### Summary
 
 This exercise showed a pretrained model with a small dataset required a fine tuning to improve the performance further.  
 If the size of the dataset gets large enough, the 'from scratch' approach generates the result that could be good enough with (or without) the fine tuning.  
 The accuracy of the finely tuned Xception, Inception V3, or Resnet50 models reached upto AUC 0.982 or higher. 
 
-## Aim 2. To explore annotation free classification schemes based on a whole slide training method
-1) The whole slide images were used to train standard CNNs by using the unified memory (UM) mechanism and several GPU memory optimization techniques without modification in either training pipelines or model architectures. 
-2) To compare some previous label free trainings such as MIL, the performance of the whole slide training was superior (AUC: 0.9594 vs. 0.9310 for MIL-RNN).
+## Aim 2. To detect gene mutation from WSI dataset using the transfer learning and fine tuning
+1) To segment the malignant patches by using the patch image classification models trained in the AIM #1.
+2) To classify each case WSI labeled by gene mutation data by the multi-label classification models.
 
-![image](https://user-images.githubusercontent.com/64822593/194527469-1b186d2e-672b-46e8-9ad4-9ab13685ab42.png)
+### Materials and Methods
+Each individual patch image was classified by the previously trained DL model and devided into training, validatation, and test data groups. The patch images in each group were transformed into the TFRecord format and labeled with multi-labels representing the gene mutations.  Transfer learning was applied to the predefined DL models initialized with the imagenet weights.  For the multi label classification, the last dense layer was set to have 11 nodes that represented 10 gene mutation classes and one bias.  Fine tuning was followed in the same way with the method in Aim 1.  
 
-From [3].  This figure illustrates nicely for three representative approaches for WSI classification schemes.  The aim 1 was accomplished following the scheme (a).  In aim 2, the scheme (c) will be explored.
+### Results
 
-Results in draft were presented available in a separate repository. https://github.com/kimdesok/whole-slide-cnn/blob/main/README.md
+Table 2.  Performance of ResNet 50, Inception V3 and Xception models for prediction of gene mutations trained by transfer learning and fine tuning
 
-## Aim 3. To utilize the previously obtained representation to detect gene mutation by the tissue image analysis
-1) To try the patch classification models.
-2) To try the WSI classification models.
+![image](https://user-images.githubusercontent.com/64822593/208837331-07b98e43-4874-4369-aada-847f3bd51629.png)
 
-## Aim 4. To provide a commercial SaaS on the cloud focusing on data QC and MLOps
+Below showing the loss and accuracy changes during the transfer training of ResNet50 model from scratch with the small dataset
 
-1) The surgery/oncology lab sends the patient specimens for a slide preparation lab.
-2) The slide preparation lab prepares the slides and scan them to generate WSI images.
-3) The proposed service accesses the WSI images and performs a data QC.
->* QC on the scanned images
->* QC on the clinical data
-4) The proposed service performs a DL based diagnostic analysis whose summary shall be uploaded onto the cloud.
-> * MLOps on datasets
-> * MLOps on model performance
-> * MLOps on model upgrade
-5) The pathologist accesses the service and sign off the findings.
-6) The surgery/oncology lab accesses the service to get the report.
+![image](https://user-images.githubusercontent.com/64822593/208837664-b0c614c0-25cd-4270-972d-5476637f4b4c.png)
+
+## Appendix 
 
 ### References: 
 >[1] DeepPATH repositoty at Dr. N. Coudray's Github https://github.com/ncoudray/DeepPATH. <br>
