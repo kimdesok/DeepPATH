@@ -41,34 +41,34 @@ This exercise showed a pretrained model with a small dataset required a fine tun
 If the size of the dataset gets large enough, the 'from scratch' approach generates the result that could be good enough with (or without) the fine tuning.  
 The accuracy of the finely tuned Xception, Inception V3, or Resnet50 models reached upto AUC 0.982 or higher. 
 
-## Aim 2. To detect gene mutation from WSI dataset using the transfer learning and fine tuning
-1) To segment the malignant patches by using the patch image classification models trained in the AIM #1.
-2) To classify each case WSI labeled by gene mutation data by the multi-label classification models.
+## Aim 2. To detect gene mutation from WSI datasets
+1) To segment the malignant patches by using the patch image classification model obtained in AIM #1.
+2) To classify each case WSI labeled by gene mutation data by the multi-label classification model.
 
 ### Materials and Methods
-Each individual patch image was classified by the previously trained DL model and devided into training, validatation, and test data groups. The patch images in each group were transformed into the TFRecord format and labeled with multi-labels representing the gene mutations.  Transfer learning was applied to the predefined DL models initialized with the imagenet weights.  For the multi label classification, the last dense layer was set to have 11 nodes that represented 10 gene mutation classes and one bias.  Fine tuning was followed in the same way with the method in Aim 1.  
+Each individual patch image was classified by the previously trained Inception v3 model, resulting in a set of patch images representing only tumor (LUAD only in this case).  These patches were divided into training, validatation, and test data groups. The patch images in each group were transformed into the TFRecord format and labeled with ten labels according to the gene mutation data.  For the multi label classification, the last dense layer was set to have 11 nodes that represented 10 typical gene mutation classes and one bias.  Transfer learning was applied to the predefined DL model initialized with the imagenet weights.  Fine tuning was followed in the same way with the method described in the Aim 1 section.  
 
-### Results
+### Results (provisional)
+The same three types of deep learning(DL) models were investigated to predict gene mutations by their histologic representation in the lung cancers.  Resnet 50 model was trained with differently sized training datasets in the same manner as in the Aim 1.  Interestingly, the accuracy values were better in the model trained from the scratch (Weights labeled as None in the table below).  The improvement of the AUC was also observed in other two DL models and Inception v3 showed the higher value than the other two DLs.  The authors reported the exactly same findings but no clear explanation of why training from the scratch had resulted in the improvement in the accuracy[3]. 
 
 Table 2.  Performance of ResNet 50, Inception V3 and Xception models for prediction of gene mutations trained by transfer learning and fine tuning
 
-![image](https://user-images.githubusercontent.com/64822593/208837331-07b98e43-4874-4369-aada-847f3bd51629.png)
+![image](https://user-images.githubusercontent.com/64822593/209256925-c780b36b-278d-4a1e-9a28-721984179604.png)
 
-Below showing the loss and accuracy changes during the transfer training of ResNet50 model from scratch with the small dataset
+Below showing the loss and accuracy changes during the transfer training of ResNet50 model from scratch with the small dataset as an example.
 
 ![image](https://user-images.githubusercontent.com/64822593/208837664-b0c614c0-25cd-4270-972d-5476637f4b4c.png)
-
-## Appendix 
 
 ### References: 
 >[1] DeepPATH repositoty at Dr. N. Coudray's Github https://github.com/ncoudray/DeepPATH. <br>
 >[2] Keras' developer guide https://keras.io/guides/transfer_learning/ <br>
->[3] An annotation-free whole-slide training approach to pathological classification of lung cancer types using deep learning (https://www.nature.com/articles/s41467-021-21467-y) <br>
->[4] Validation of a digital pathology system including remote review during the COVID-19 pandemic (https://www.nature.com/articles/s41379-020-0601-5.pdf) <br>
->[5] Hierarchical Graph Representations in Digital Pathology (https://arxiv.org/pdf/2102.11057.pdf) <br>
+>[3] Nicolas Coudray, Paolo Santiago Ocampo, Theodore Sakellaropoulos, Navneet Narula, Matija Snuderl, David Fenyö, Andre L. Moreira, Narges Razavian, Aristotelis Tsirigos. Classification and mutation prediction from non–small cell lung cancer histopathology images using deep learning. Nature Medicine, 2018; DOI: 10.1038/s41591-018-0177-5 https://www.nature.com/articles/s41591-018-0177-5 <br>
 
+### Acknowledgement: NVidia's Quadro RTX 6000 was kindly provided by a high performance computing facility of NIPA(National IT Promotion Agency).
 
-##  Discussion on the DeepPATH framework
+## Appendix 
+
+###  Discussion on the DeepPATH framework
 
 The DeepPATH framework gathers the codes that have been used to study the use of a deep learning architecture (Inception v3 from Google) to classify Lung cancer images.
 
@@ -93,5 +93,3 @@ https://www.biorxiv.org/content/early/2017/10/03/197574
 
 The schema of the model build from the paper
 ![image](https://user-images.githubusercontent.com/64822593/154029375-23ba352d-3f16-4933-86f3-f9478c2f4523.png)
-
-### Acknowledgement: NVidia's Quadro RTX 6000 was kindly provided by a high performance computing facility of NIPA(National IT Promotion Agency).
