@@ -1,4 +1,4 @@
-# Classification of lung cancer image patches and prediction of gene mutations using deep neural nets
+# Image classification of lung cancers and prediction of their gene mutations using deep neural nets
 ![image](https://user-images.githubusercontent.com/64822593/208830983-7c5d1077-7a3c-4618-85ff-ffc2ce92d5d8.png)
 
 <br>Pipeline schema for dataset preparation and DL model training related to Aim 1 and 2<br><br>
@@ -31,7 +31,8 @@ Inception V3 resulted in the AUC of 0.9287 by its transfer learning with the ful
 
 (The full dataset had a training set of 1024 WSIs and a validation set of 206 WSIs while the small set had 100 WSIs and 50 WSIs, respectively.  Both sets had a test set of 207 WSIs.)
 
-Below showing the loss and accuracy changes during the training of a fine tuned ResNet50 model with the small dataset
+Below showing the loss and accuracy changes during the training of a fine tuned ResNet50 model with the small dataset as an example.
+
 
 ![image](https://github.com/kimdesok/DeepPATH/blob/master/Resnet50_small_fine_tuned_plot.png)
 
@@ -39,7 +40,7 @@ Below showing the loss and accuracy changes during the training of a fine tuned 
 
 This exercise showed a pretrained model with a small dataset required a fine tuning to improve the performance further.  
 If the size of the dataset gets large enough, the 'from scratch' approach generates the result that could be good enough with (or without) the fine tuning.  
-The accuracy of the finely tuned Xception, Inception V3, or Resnet50 models reached upto AUC 0.982 or higher. 
+The accuracy of all three models were dramatically increased after application of fine tuning, reaching upto AUC 0.982 or higher. 
 
 ## Aim 2. To detect gene mutation from WSI datasets
 1) To segment the malignant patches by using the patch image classification model obtained in AIM #1.
@@ -49,7 +50,7 @@ The accuracy of the finely tuned Xception, Inception V3, or Resnet50 models reac
 Each individual patch image was classified by the previously trained Inception v3 model, resulting in a set of patch images representing only tumor (LUAD only in this case).  These patches were divided into training, validatation, and test data groups. The patch images in each group were transformed into the TFRecord format and labeled with ten labels according to the gene mutation data.  For the multi label classification, the last dense layer was set to have 11 nodes that represented 10 typical gene mutation classes and one bias.  Transfer learning was applied to the predefined DL model initialized with the imagenet weights.  Fine tuning was followed in the same way with the method described in the Aim 1 section.  
 
 ### Results (provisional)
-The same three types of deep learning(DL) models were investigated to predict gene mutations by their histologic representation in the lung cancers.  Resnet 50 model was trained with differently sized training datasets in the same manner as in the Aim 1.  Interestingly, the accuracy values were better in the model trained from the scratch (Weights labeled as None in the table below).  The improvement of the AUC was also observed in other two DL models and Inception v3 showed the higher value than the other two DLs.  The authors reported the exactly same findings but no clear explanation of why training from the scratch had resulted in the improvement in the accuracy[3]. 
+The same three types of deep learning(DL) models were investigated to predict gene mutations by their histologic representation in the lung cancers.  Resnet 50 model was trained with differently sized training datasets in the same manner as in the Aim 1.  Interestingly, the accuracy values were better in the model trained from the scratch (Weights labeled as None in the table below).  The improvement of the AUC was also observed in other two DL models and Inception v3, in particular, showed the higher accuracy compared to the other two DLs.  The authors reported the exactly same findings but no clear explanation of why training from the scratch had resulted in the improvement in the accuracy[3]. 
 
 Table 2.  Performance of ResNet 50, Inception V3 and Xception models for prediction of gene mutations trained by transfer learning and fine tuning
 
