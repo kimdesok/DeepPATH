@@ -1,13 +1,21 @@
+# Whole Slide Image Classification
+
+In this repository, we intend to archive some of our R&D efforts in learning and applying WSI classification techniques.  Software tools and datasets used by us will be available as our project progresses.
+
+Whole slide image(WSI) classification technique has been mainly investigated to automatically detect the presence of malignant tissue in light microscopic histological slides.  The most attractive point of WSI classification techniques is that we do not need a pixel level annotation.  This advantage would let us explore a great deal of possibilities of achieving automatic classification of WSIs, which is one of the most important technical hurdles in computational pathology. 
+
+Most of these techniques are based on neural nets approaches, popularly called deep learning.  Starting from convolutional neural net(CNN) applied on patch images(Part I), we are gearing toward more practical approaches such as CNNs applied on WSIs.  A straightforward adoption of CNNs for WSI classification requires a top notch computing resource with more than several hundred gigabytes memory. Although its classification accuracy is somewhat close to the ideal performance(Part II), it is limited for us to access and costly for now.  Alternatively, a relatively new approach is to use multiple instance learning(MIL) based CNNs(Part III).  These techniques do not seem to require the huge memory of the computing resource but are not as accurate as the straightforward application of the CNNs.  To achieve the comparable high accuracy, they need a vast amount of image datasets.  However, most of these requirements are achievable in terms of the accessibility of computing resources, the availability of datasets and open source software sets.
+
 # Contents
-Part I. Patchwise image classification of lung cancers
+[Part I. Patchwise image classification of lung cancers](https://github.com/kimdesok/DeepPATH/edit/master/README.md#part-i-patchwise-image-classification-of-lung-cancers)
 >* Aim 1. To build a pipeline for classifying lung cancer image patches
 >* Aim 2. To detect gene mutation from WSI image datasets <br>
 
-Part II. Whole slide image classification of lung cancers
+[Part II. Whole slide image classification of lung cancers](https://github.com/kimdesok/DeepPATH#part-ii-whole-slide-image-classification-of-lung-cancers)
 >* Aim 1. To classify lung cancers without pixel level annotations
 >* Aim 2. To investigate the performance WSI based training in different resolutions <br>
 
-(Part III. Preliminary study of Multiple Instance Learning(MIL))
+[Part III. Multiple Instance Learning(MIL) for WSI classification](https://github.com/kimdesok/DeepPATH/edit/master/README.md#part-iii-preliminary-study-of-multiple-instance-learningmil-next-phase-development-under-preparation) (Next phase development. Under preparation)
 
 ## Part I Patchwise image classification of lung cancers
 
@@ -448,3 +456,5 @@ The use of arguments such as norm_use, use_fixup, and to_caffe_preproc seemed to
 
 - [ResNet]
   (https://github.com/keras-team/keras-applications/blob/master/keras_applications/resnet_common.py)
+  
+## Part III. Preliminary study of Multiple Instance Learning(MIL) (Next phase development. Under preparation)
