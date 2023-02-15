@@ -100,15 +100,17 @@ For more details and references, please check:
 
 Nicolas Coudray, Paolo Santiago Ocampo, Theodore Sakellaropoulos, Navneet Narula, Matija Snuderl, David Fenyö, Andre L. Moreira, Narges Razavian, Aristotelis Tsirigos. Classification and mutation prediction from non–small cell lung cancer histopathology images using deep learning. Nature Medicine, 2018; DOI: 10.1038/s41591-018-0177-5 https://www.nature.com/articles/s41591-018-0177-5
 
-A. Model generation for tumor vs. normal classification
+A. Training a model for tumor vs. normal classification
   1) Tile generation from WSI images
   2) The label of each tile (although stated that way, *may be inaccurate)
   3) Transfer learning to classify tumor vs. normal tiles 
-  4) Decision scheme for patient level classification
-B. Model generation for gene mutation classification
+  4) Decision scheme for patient level classification <br>
+  
+B. Training another model for gene mutation classification
   1) Finding of frequently occurring somatic mutations in lung cancers
   2) The label of each patient case (by the most frequently occurred mutation. Make sense but it needs to be confirmed)
-  3) Tranfer learning to classify the presence of gene mutation
+  3) Tranfer learning to classify the presence of gene mutation <br>
+  
 C. Test of two models in one batch run
 
 https://www.nature.com/articles/s41591-018-0177-5
